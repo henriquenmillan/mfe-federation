@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/module-federation';
+import { filter, mergeMap } from 'rxjs';
+import { RemoteModuleService } from './services/remote-module.service';
 
 @Component({
   selector: 'app-shell',
@@ -9,37 +11,21 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
 })
 export class ShellComponent {
   constructor(
-    private router: Router
-  ) {}
-
-  private remoteEntryUrl = {
-    cadastro: {
-          remoteEntry: 'http://localhost:4201/remoteEntry.js',
-          remoteName: 'mfeCadastro',
-          exposedModule: './CadastroModule',
-          moduleName: 'CadastroModule'
-    }
-  }
+  ) { }
 
   navigateToCadastro() {
-    // const teste = (<any>this.router.config.find((config) => config.path === ''))._loadedRoutes;
-    const remoteConfig = this.remoteEntryUrl.cadastro;
-   
-    this.router.resetConfig([
-      ...this.router.config,
-      {
-        path: 'cadastro',
-        loadChildren: () => loadRemoteModule({
-          remoteEntry: remoteConfig.remoteEntry,
-          remoteName: remoteConfig.remoteName,
-          exposedModule: remoteConfig.exposedModule
-        }).then(m => m[remoteConfig.moduleName]).catch(err => {
-          console.error('Error loading CadastroModule:', err);
-          return null;
-        })
+    window.dispatchEvent(new CustomEvent('navigateToMfe', {
+      detail: {
+        url: 'cadastro',
+        param: { teste: '123' },
+        callback: (result: any) => {
+          console.log('Resposta:', result);
+        }
       }
-    ])
-        
-    this.router.navigate(['cadastro']);
+    }));
   }
+
+
+
+
 }

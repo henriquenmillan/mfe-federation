@@ -27,30 +27,30 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      
+
       // For remotes (please adjust)
       name: "mfeCadastro",
       library: { type: "var", name: "mfeCadastro" },
-        filename: "remoteEntry.js",
-        exposes: {
-            './CadastroModule': './projects/mfe-cadastro/src/app/cadastro/cadastro.module.ts',
-        },
+      filename: "remoteEntry.js",
+      exposes: {
+        './CadastroModule': './projects/mfe-cadastro/src/app/cadastro/cadastro.module.ts',
+      },
 
-        // For hosts (please adjust)
-        // remotes: {
-        //     "shell": "http://localhost:4200/remoteEntry.js",
-        //     "mfeSucesso": "http://localhost:4200/remoteEntry.js",
+      // For hosts (please adjust)
+      // remotes: {
+      //     "shell": "http://localhost:4200/remoteEntry.js",
+      //     "mfeSucesso": "http://localhost:4200/remoteEntry.js",
 
-        // },
+      // },
 
-        shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '^18.2.0' },
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: '^18.2.0' },
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: '^18.2.0' },
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: '^18.2.0' },
+      shared: share({
+        "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '^18.2.0' },
+        "@angular/common": { singleton: true, strictVersion: true, requiredVersion: '^18.2.0' },
+        "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: '^18.2.0' },
+        "@angular/router": { singleton: true, strictVersion: true, requiredVersion: '^18.2.0' },
 
-          ...sharedMappings.getDescriptors()
-        })
+        ...sharedMappings.getDescriptors()
+      })
 
     }),
     sharedMappings.getPlugin()

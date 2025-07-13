@@ -12,8 +12,7 @@ import { SucessoModule } from './sucesso/sucesso.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SucessoModule,
-    
+    SucessoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

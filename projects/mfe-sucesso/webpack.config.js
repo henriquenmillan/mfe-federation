@@ -29,19 +29,12 @@ module.exports = {
     new ModuleFederationPlugin({
         library: { type: "module" },
 
-        // For remotes (please adjust)
         name: "mfeSucesso",
+        library: { type: "var", name: "mfeSucesso" },
         filename: "remoteEntry.js",
         exposes: {
             './SucessoModule': './projects/mfe-sucesso/src/app/sucesso/sucesso.module.ts',
         },
-
-        // For hosts (please adjust)
-        // remotes: {
-        //     "mfeCadastro": "http://localhost:4201/remoteEntry.js",
-        //     "shell": "http://localhost:4200/remoteEntry.js",
-
-        // },
 
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '^18.2.0' },

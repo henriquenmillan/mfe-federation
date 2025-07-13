@@ -1,1 +1,5 @@
-<p>sucesso works!</p>
+<div *ngIf="registredUser.id">
+    <h2>Usuário cadastrado com sucesso</h2>
+    <p>Nome: {{registredUser.name}}</p>
+    <p>E-mail: {{registredUser.email}}</p>
+</div>

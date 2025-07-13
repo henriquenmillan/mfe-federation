@@ -86,7 +86,8 @@
 					"options": {
 						"port": 4201,
 						"publicHost": "http://localhost:4201",
-						"extraWebpackConfig": "projects/mfe-cadastro/webpack.config.js"
+						"extraWebpackConfig": "projects/mfe-cadastro/webpack.config.js",
+						"proxyConfig": "proxy.config.json"
 					}
 				},
 				"extract-i18n": {
@@ -198,7 +199,8 @@
 					"options": {
 						"port": 4200,
 						"publicHost": "http://localhost:4200",
-						"extraWebpackConfig": "projects/shell/webpack.config.js"
+						"extraWebpackConfig": "projects/shell/webpack.config.js",
+						"proxyConfig": "proxy.config.json"
 					}
 				},
 				"extract-i18n": {
@@ -310,7 +312,8 @@
 					"options": {
 						"port": 4202,
 						"publicHost": "http://localhost:4202",
-						"extraWebpackConfig": "projects/mfe-sucesso/webpack.config.js"
+						"extraWebpackConfig": "projects/mfe-sucesso/webpack.config.js",
+						"proxyConfig": "proxy.config.json"
 					}
 				},
 				"extract-i18n": {
