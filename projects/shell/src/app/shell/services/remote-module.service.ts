@@ -8,17 +8,6 @@ import { RemoteMoluleList } from "../models/remote-module.model";
 })
 export class RemoteModuleService {
 
-    constructor(
-        private router: Router
-    ) {
-    }
-
-    listenRemoteModule(): void {
-        window.addEventListener('navigateToMfe', (event: any) => {
-            this.loadRemoteModule(event.detail)
-        });
-    }
-
     private loadedRemotes = new Set<string>();
 
     private remoteModulesList: RemoteMoluleList = {
@@ -37,6 +26,16 @@ export class RemoteModuleService {
             url: "sucesso"
         }
     };
+
+    constructor(
+        private router: Router
+    ) { }
+
+    listenRemoteModule(): void {
+        window.addEventListener('navigateToMfe', (event: any) => {
+            this.loadRemoteModule(event.detail)
+        });
+    }
 
     loadRemoteModule(event: any) {
         const url: string = event.url.split('?')[0].replace('/', '');

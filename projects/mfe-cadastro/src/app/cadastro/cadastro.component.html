@@ -1,42 +1,45 @@
-<form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
-    <div class="full-width">
-        <mat-form-field>
-            <mat-label>Nome</mat-label>
-            <input matInput #message minlength="4" maxlength="120" formControlName="name" required>
-            <mat-error *ngIf="formCadastro.get('name')?.hasError('minlength')">
-                O nome deve conter no mínimo 4 caracteres.
-            </mat-error>
-            <mat-error *ngIf="formCadastro.get('name')?.hasError('maxlength')">
-                O nome deve conter no máximo 120 caracteres.
-            </mat-error>
-            <mat-error *ngIf="formCadastro.get('name')?.hasError('multipleSpaces')">
-                O nome não deve conter mais de um espaçamento junto.
-            </mat-error>
-            <mat-error *ngIf="formCadastro.get('name')?.hasError('onlyLetters')">
-                O nome deve conter apenas letras.
-            </mat-error>
-            <mat-error *ngIf="formCadastro.get('name')?.hasError('required')">
-                O nome é obrigatório.
-            </mat-error>
-        </mat-form-field>
-    </div>
+<div class="cadastro-container">
+    <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+        <div class="full-width">
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput #message minlength="4" maxlength="120" formControlName="name" required placeholder="Ex. João da Silva">
+                <mat-error *ngIf="formCadastro.get('name')?.hasError('minlength')">
+                    O nome deve conter no mínimo 4 caracteres.
+                </mat-error>
+                <mat-error *ngIf="formCadastro.get('name')?.hasError('maxlength')">
+                    O nome deve conter no máximo 120 caracteres.
+                </mat-error>
+                <mat-error *ngIf="formCadastro.get('name')?.hasError('multipleSpaces')">
+                    O nome não deve conter mais de um espaçamento junto.
+                </mat-error>
+                <mat-error *ngIf="formCadastro.get('name')?.hasError('onlyLetters')">
+                    O nome deve conter apenas letras.
+                </mat-error>
+                <mat-error *ngIf="formCadastro.get('name')?.hasError('required')">
+                    O nome é obrigatório.
+                </mat-error>
+            </mat-form-field>
+        </div>
 
-    <div class="full-width">
-        <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email" type="email" required placeholder="Ex. cadastro@exemplo.com">
+        <div class="full-width">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="email" required placeholder="Ex. cadastro@exemplo.com">
 
-            <mat-error *ngIf="formCadastro.get('email')?.hasError('email')">
-                Por favor, entre com um e-mail válido</mat-error>
+                <mat-error *ngIf="formCadastro.get('email')?.hasError('email')">
+                    Por favor, entre com um e-mail válido</mat-error>
 
-            <mat-error *ngIf="formCadastro.get('email')?.hasError('required')">
-                Um e-mail é obrigatório
-            </mat-error>
+                <mat-error *ngIf="formCadastro.get('email')?.hasError('required')">
+                    Um e-mail é obrigatório
+                </mat-error>
 
-        </mat-form-field>
-    </div>
+            </mat-form-field>
+        </div>
 
-    <div class="button-submit">
-        <button mat-raised-button type="submit" [disabled]="formCadastro.invalid">Salvar</button>
-    </div>
-</form>
+        <div class="button-submit">
+            <button mat-raised-button type="submit" [disabled]="formCadastro.invalid">Salvar</button>
+        </div>
+    </form>
+
+</div>

@@ -101,6 +101,8 @@
 							"zone.js/testing"
 						],
 						"tsConfig": "projects/mfe-cadastro/tsconfig.spec.json",
+						"karmaConfig": "projects/mfe-cadastro/karma.conf.js",
+						"codeCoverage": true,
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							{
@@ -214,6 +216,8 @@
 							"zone.js/testing"
 						],
 						"tsConfig": "projects/shell/tsconfig.spec.json",
+						"karmaConfig": "projects/shell/karma.conf.js",
+						"codeCoverage": true,
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							{
@@ -327,6 +331,8 @@
 							"zone.js/testing"
 						],
 						"tsConfig": "projects/mfe-sucesso/tsconfig.spec.json",
+						"karmaConfig": "projects/mfe-sucesso/karma.conf.js",
+						"codeCoverage": true,
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							{

@@ -4,6 +4,7 @@ import { ShellComponent } from './shell.component';
 import { MatButtonModule } from '@angular/material/button';
 import { initListenRemoteModule } from './services/remote-module.factory';
 import { RemoteModuleService } from './services/remote-module.service';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 
@@ -13,7 +14,8 @@ import { RemoteModuleService } from './services/remote-module.service';
   ],
   imports: [
     CommonModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule
   ],
   exports: [
     ShellComponent
